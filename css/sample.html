@@ -1,0 +1,247 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div id="container">
+			<div class="row">
+			
+				<div class="col-md-4">
+					<div class="form-group label-floating">
+						<label class="control-label">Customer Name</label>
+						<input type="text" name="name" placeholder="Enter Customer Name"  class="form-control" v-model="act" required />
+					</div>
+				</div>
+				
+						
+				<div class="col-md-4">
+					<div class="form-group label-floating">
+						<label class="control-label">Description of Goods </label>
+						<select id="product" onchange ="ddlselect();" class="form-control" v-model="section">
+							<option>Choose Product</option>
+							<option value="1" data-valuea="23099031" data-valueb="1800">SANDYA 2C 26KG</option>
+							<option value="2" data-valuea="23099033" data-valueb="1600">SANDYA 2P 25KG</option>
+							<option value="3" data-valuea="23099065" data-valueb="2200">SANDYA 3S 25KG</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="form-group label-floating">
+						<label class="control-label">HSN/SAC</label>
+						<input type="text" name="hsn" id="hsn" placeholder="HSN/SAC"  class="form-control" v-model="hsn" required />
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="form-group label-floating">
+						<label class="control-label">Quantity</label>
+						<select id="quantity" class="form-control" v-model="quantity">
+							<option>Choose Quantity</option>
+							<option id = "a" value = 1>1</option>
+							<option id = "b" value = 2>2</option>
+							<option id = "c" value = 3>3</option>
+							<option value = 4>4</option>
+							<option value = 5>5</option>
+							<option value = 6>6</option>
+							<option value = 7>7</option>
+							<option value = 8>8</option>
+							<option value = 9>9</option>
+							<option value = 10>10</option>
+							<option>11</option>
+							<option>12</option>
+							<option>13</option>
+							<option>14</option>
+							<option>15</option>
+							<option>16</option>
+							<option>17</option>
+							<option>18</option>
+							<option>19</option>
+							<option>20</option>
+							<option>21</option>
+							<option>22</option>
+							<option>23</option>
+							<option>24</option>
+							<option>25</option>
+							<option>26</option>
+							<option>27</option>
+							<option>28</option>
+							<option>29</option>
+							<option>30</option>
+							<option>31</option>
+							<option>32</option>
+							<option>33</option>
+							<option>34</option>
+							<option>35</option>
+							<option>36</option>
+							<option>37</option>
+							<option>38</option>
+							<option>39</option>
+							<option>40</option>
+							<option>41</option>
+							<option>42</option>
+							<option>43</option>
+							<option>44</option>
+							<option>45</option>
+							<option>46</option>
+							<option>47</option>
+							<option>48</option>
+							<option>49</option>
+							<option>50</option>
+							<option>51</option>
+							<option>52</option>
+							<option>53</option>
+							<option>54</option>
+							<option>55</option>
+							<option>56</option>
+							<option>57</option>
+							<option>58</option>
+							<option>59</option>
+							<option>60</option>
+							<option>61</option>
+							<option>62</option>
+							<option>63</option>
+							<option>64</option>
+							<option>65</option>
+							<option>66</option>
+							<option>67</option>
+							<option>68</option>
+							<option>69</option>
+							<option>70</option>
+							<option>71</option>
+							<option>72</option>
+							<option>73</option>
+							<option>74</option>
+							<option>75</option>
+							<option>76</option>
+							<option>77</option>
+							<option>78</option>
+							<option>79</option>
+							<option>80</option>
+							<option>81</option>
+							<option>82</option>
+							<option>83</option>
+							<option>84</option>
+							<option>85</option>
+							<option>86</option>
+							<option>87</option>
+							<option>88</option>
+							<option>89</option>
+							<option>90</option>
+							<option>91</option>
+							<option>92</option>
+							<option>93</option>
+							<option>94</option>
+							<option>95</option>
+							<option>96</option>
+							<option>97</option>
+							<option>98</option>
+							<option>99</option>
+							<option>100</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="form-group label-floating">
+						<label class="control-label">Rate</label>
+						<input type="text" name="rate" id="rate" placeholder="Rate"  class="form-control" v-model="rate" required />
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group label-floating">
+						<label class="control-label">Am</label>
+						<input type="button" name="sub" onclick = "calc()"  value="Total"/>
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="form-group label-floating">
+						<label class="control-label">Amount</label>
+						<input type="text" name="amount" id="amount" placeholder="Amount"  onclick = "calc()" class="form-control" v-model="amount" required />
+					</div>
+				</div>
+				
+				
+				
+			</div>
+		</div>
+		<button id="btn">Add row</button>
+		<script>
+			var count=1;
+			$("#btn").click(function(){
+			  
+			  $("#container").append(addNewRow(count));
+			  count++;
+			});
+
+			function addNewRow(count){
+			  var newrow='<div class="row">'+
+				'<div class="col-md-4">'+
+					'<div class="form-group label-floating">'+
+						'<label class="control-label">Act '+count+'</label>'+
+						'<input type="text" class="form-control" v-model="act" >'+
+					'</div>'+
+				'</div>'+
+				'<div class="col-md-4">'+
+					'<div class="form-group label-floating">'+
+						'<label class="control-label">Section '+count+'</label>'+
+						'<select id="product" name = "product" onchange = "ddlselect();" class="form-control" v-model="section">'+
+							'<option>Choose Product</option>'+
+							'<option value="1" data-valuea="23099031" data-valueb="1800">SANDYA 2C 26KG</option>'+
+							'<option value="2" data-valuea="23099033" data-valueb="1600">SANDYA 2P 25KG</option>'+
+							'<option value="3" data-valuea="23099065" data-valueb="2200">SANDYA 3S 25KG</option>'+
+						'</select>'+	
+					'</div>'+
+				'</div>'+   
+				'<div class="col-md-4">'+
+					'<div class="form-group label-floating">'+
+						'<label class="control-label">HSN/SAC</label>'+
+						'<input type="text" name="hsn" placeholder="HSN/SAC"  class="form-control" v-model="hsn" required />'+
+					'</div>'+
+				'</div>'+
+				'<div class="col-md-4">'+
+					'<div class="form-group label-floating">'+
+						'<label class="control-label">Rate</label>'+
+						'<input type="text" name="rate" id="rate" placeholder="Rate"  class="form-control" v-model="rate" required />'+
+					'</div>'+
+				'</div>'+
+				'<div class="col-md-4">'+
+					'<div class="form-group label-floating">'+
+						'<label class="control-label">Amount</label>'+
+						'<input type="text" name="amount" id="amount" placeholder="Amount"  class="form-control" v-model="amount" required />'+
+					'</div>'+
+				'</div>'+
+			'</div>';
+			  return newrow;
+			}
+			$('select').on('change', function() {
+						document.getElementById("hsn").value = $("select option:selected").data('valuea');
+						document.getElementById("rate").value = $("select option:selected").data('valueb');
+			});
+			/*function ddlselect()
+			{
+			
+						var d = document.getElementById("product");
+						var displaytext = d.options[d.selectedIndex].data('valuea');
+						document.getElementById("hsn").value =  displaytext;
+						document.getElementById("rate").value = $("select option:selected").data('valueb');*/
+						
+					/*	
+					$('select').on('change', function() {
+						document.getElementById("hsn").value = $("select option:selected").data('valuea');
+						document.getElementById("rate").value = $("select option:selected").data('valueb');
+
+					});
+			}*/
+			
+			function calc()
+					{
+						var rate = parseFloat(document.getElementById("rate").value);
+						var quantity = parseFloat(document.getElementById("quantity").value);
+						document.getElementById("amount").value = (rate * quantity);
+					}
+</script>
+	</body>
+</html>
