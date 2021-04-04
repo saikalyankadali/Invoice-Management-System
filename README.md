@@ -9,7 +9,7 @@ employee can generate the bill to customer. After submitting the bill concerned 
 the notification. Manager review the bill and approve the bill or disapprove. Employee can
 check the status of the bill any time after login the system.
 </p>
-<img src = "https://raw.githubusercontent.com/saikalyankadali/Invoice-Management-System/main/screenshots/ScreeShot13.png?token=ANCGXZTBABCNRF6XDEMDZKDANGF6O"/>
+<img src = "https://raw.githubusercontent.com/saikalyankadali/Invoice-Management-System/main/screenshots/ScreeShot13.png?token=ANCGXZVAT644YP4BZFULMJLANGKW4"/>
   </body>
 </html>
 
