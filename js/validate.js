@@ -1,3 +1,4 @@
+// single command added
 // JavaScript Document
 function pidChange(){
 	var pid = document.getElementById("prodid").value;
