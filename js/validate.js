@@ -59,3 +59,5 @@ function validate(){
 	}
 		return true;
 }
+
+//Command added
